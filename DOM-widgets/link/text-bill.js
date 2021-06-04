@@ -20,7 +20,7 @@ function textBillTotal(){
 textInsta.textBillTotal2(billTypeEntered)
     
     //update the totals that is displayed on the screen.
-    callsTotalElem.innerHTML = userTemplate({callTotalOne: textInsta.totalCalls().toFixed(2)});
+    callsTotalElem.innerHTML = userTemplate({callTotalOne:textInsta.totalCalls().toFixed(2)});
     smsTotalElem.innerHTML = userTemplate({smsTotalOne:textInsta.totalSms().toFixed(2)});
     totalCostElem.innerHTML = userTemplate({totalOne:textInsta.total().toFixed(2)});
 
