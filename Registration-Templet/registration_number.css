@@ -3,15 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
 body {
     text-decoration: none;
-    background: url(https://www.wallpapertip.com/wmimgs/129-1291608_audi-cars-wallpapers-full-hd-full-hd-audi.jpg) no-repeat center/cover;
+    background: gray;
     display: flex;
 }
 
-.container {
-    border: none;
-    width: 80%;
+.container, .container1 {
+    border: 5px black solid;
+    width: 95%;
     height: 90vh;
     text-align: center;
+    background: url(https://c4.wallpaperflare.com/wallpaper/788/752/890/ford-gt-2015-wallpaper-preview.jpg) no-repeat center/cover;
 }
 
 p {
@@ -21,7 +22,7 @@ p {
     margin-bottom: 10px;
 }
 
-.plates ,.plates2 {
+.plates, .plates2 {
     border: 3px outset lightskyblue;
     outline: 0;
     height: 25px;
@@ -95,7 +96,7 @@ button span {
     font-family: 'Architects Daughter', cursive;
 }
 
-.add ,.add2{
+.add, .add2 {
     background-color: white;
     border-radius: 50%;
     color: black;
@@ -106,14 +107,13 @@ button span {
     font-family: 'Merienda', cursive;
 }
 
-
 .add:hover, .add2:hover {
     background-color: orange;
     color: white;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.add span, .add2 span  {
+.add span, .add2 span {
     cursor: pointer;
     display: inline-block;
     position: relative;
@@ -129,7 +129,7 @@ button span {
     transition: 0.5s;
 }
 
-.add:hover span , .add2:hover span{
+.add:hover span, .add2:hover span {
     padding-right: 20px;
 }
 
@@ -138,7 +138,7 @@ button span {
     right: 0;
 }
 
-#error, #error2{
+#error, #error2 {
     color: red;
     font-size: 35px;
 }
@@ -173,7 +173,7 @@ select {
     h3 {
         font-size: 18px;
     }
-    .add , .add2{
+    .add, .add2 {
         background-color: white;
         border-radius: 50%;
         color: black;
@@ -191,7 +191,7 @@ select {
         width: 30%;
         font-size: 15px;
     }
-    .show , .show2{
+    .show, .show2 {
         margin-top: 90px;
     }
     .slct1 {
