@@ -6,32 +6,123 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="registration_number.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+    <script type="text/x-template" class="userTemplate3">
+        <ul>
+        {{#each userInsta}}
+        <li>{{this}}</li>
+        {{/each}}
+        </ul>
+    </script>
+
 </head>
 
 <body>
-    <table>
-        <tr>
-            <th>Username</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Email</th>
-        </tr>
-        <tbody class="userData">y
-        </tbody>
-    </table>
-</body>
-<script type="text/x-template" class="userTemplate">
-    {{#each users}}
-    <tr>
-        <td>{{ username }}</td>
-        <td>{{ firstName }}</td>
-        <td>{{ lastName }}</td>
-        <td>{{ email }}</td>
-        {{/each}}
-    </tr>
-</script>
+    <section class="split">
+        <div class="container">
+            <h1>Registration Number System</h1>
+            <p>FORMAT: ONLY TAKE PLATES FROM CAPE TOWN(CA) & PRETORIA(PA) & WORCESTER(WC).
+                eg. CA 123 456 Or CA 123-456 Or CA 1234 </p>
+            <span id="error"></span>
+            <div class="adjust">
+                <div class="section1">
+                    <h3>Enter Plate:</h3>
+                </div>
+                <div>
+                    <input type="text" name="" value="" placeholder="eg.CA 12345" class="plates">
+                </div>
+            </div>
+            <div>
+                <button class="button-primary add" type="button" name="button"> <span>ADD</span></button>
 
-<script src="users.js" charset="utf-8"></script>
+
+            </div>
+
+
+            <div class="f-group">
+                <label for="" class="title">Select from which Town</label>
+                <select name="slct1" id="slct1" class="slct1">
+                    <option value="CA">Cape Town</option>
+                    <option value="PA">Pretoria</option>
+                    <option value="WC">Worcester</option>
+                </select>
+
+            </div>
+
+            <div class="lastbuttons">
+                <div class="buttons">
+                    <button class="button-primary show" type="button" name="button"> <span>SHOW</span></button>
+                </div>
+                <div class="buttons">
+                    <button class="button-primary showAll" type="button" name="button"> <span>SHOW_All</span></button>
+                </div>
+
+                <div class="buttons">
+                    <button class="button-primary reset" type="button" name="button"> <span>RESET</span></button>
+                </div>
+            </div>
+
+            <div>
+                <ul id="displayedPlate">
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Second body  -->
+
+    <section class="split">
+        <div class="container">
+            <h1>Registration Number System</h1>
+            <p>FORMAT: ONLY TAKE PLATES FROM CAPE TOWN(CA) & PRETORIA(PA) & WORCESTER(WC).
+                eg. CA 123 456 Or CA 123-456 Or CA 1234 </p>
+            <span id="error2"></span>
+            <div class="adjust">
+                <div class="section1">
+                    <h3>Enter Plate:</h3>
+                </div>
+                <div>
+                    <input type="text" name="" value="" placeholder="eg.CA 12345" class="plates2">
+                </div>
+            </div>
+            <div>
+                <button class="button-primary add2" type="button" name="button"> <span>ADD</span></button>
+            </div>
+
+            <div class="f-group">
+                <label for="" class="title">Select from which Town</label>
+                <select name="slct1" id="slct2" class="slct1">
+                    <option value="CA">Cape Town</option>
+                    <option value="PA">Pretoria</option>
+                    <option value="WC">Worcester</option>
+                </select>
+            </div>
+
+            <div class="lastbuttons">
+                <div class="buttons">
+                    <button class="button-primary show2" type="button" name="button"> <span>SHOW</span></button>
+                </div>
+                <div class="buttons">
+                    <button class="button-primary showAll2" type="button" name="button"> <span>SHOW_All</span></button>
+                </div>
+
+                <div class="buttons">
+                    <button class="button-primary reset2" type="button" name="button"> <span>RESET</span></button>
+                </div>
+            </div>
+
+            <div id="displayedPlate2">
+                
+            </div>
+        </div>
+    </section>
+</body>
+
+<script src="factory.js" charset="utf-8"></script>
+<script src="registration_number.js" charset="utf-8"></script>
+<script src="registration_2.js" charset="utf-8"></script>
 
 </html>
