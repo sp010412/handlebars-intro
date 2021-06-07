@@ -1,10 +1,10 @@
-var textBox2= document.querySelector(".plates2")
+var textBox2 = document.querySelector(".plates2")
 var addBtn2 = document.querySelector(".add2")
 var showBtn2 = document.querySelector(".show2")
 var resetBtn2 = document.querySelector(".reset2")
 var showAllBtn2 = document.querySelector(".showAll2")
 var errorElem2 = document.getElementById('error2')
-var displayHere =document.getElementById("displayedPlate2")
+var displayHere = document.getElementById("displayedPlate2")
 
 var templateSource = document.querySelector(".userTemplate3").innerHTML;
 var userTemplate1 = Handlebars.compile(templateSource);
@@ -30,8 +30,9 @@ function displayedTemp(plateIn) {
     // while (document.getElementById("displayedPlate").hasChildNodes()) {
     //     document.getElementById("displayedPlate").removeChild(document.getElementById("displayedPlate").firstChild)
     // }
-    document.getElementById("displayedPlate").innerHTML = "";
-    displayHere.innerHTML = userTemplate1({userInsta: plateIn});
+    plateIn = list;
+    // document.getElementById("displayedPlate").innerHTML = "";
+    displayHere.innerHTML = userTemplate1({ userInsta: plateIn });
 
 }
 
@@ -41,9 +42,11 @@ function addedTemp() {
     if (secondInsta.storePlates(textBox2.value.toUpperCase())) {
         var key = secondInsta.getStorePlates();
         localStorage.setItem('blates', JSON.stringify(key));
-        
-        errorElem2.innerHTML= "Plate added!";
+        // displayedTemp(key)
+        errorElem2.innerHTML = "Plate added!";
         errorElem2.style.color = "green"
+        displayHere.innerHTML = userTemplate1({ userInsta: key });
+
         setTimeout(function () {
             errorElem2.innerHTML = ""
         }, 3000);
@@ -58,6 +61,7 @@ function addedTemp() {
         return;
 
     }
+
 }
 addBtn2.addEventListener('click', addedTemp);
 
@@ -66,7 +70,7 @@ addBtn2.addEventListener('click', addedTemp);
 var valid = /^((CA|PA|WC)\s\d{3}\-\d{3})$|^((CA|PA|WC)\s\d{3}\s\d{3})$|^((CA|PA|WC)\s\d{4})$/i;
 
 function conditions() {
-    
+
     if (textBox2.value == "") {
         errorElem2.innerHTML = "Enter a registration plate!";
 
@@ -76,7 +80,7 @@ function conditions() {
         return;
     }
 
-    else if (valid.test(textBox2.value)!= true) {
+    else if (valid.test(textBox2.value) != true) {
         errorElem2.innerHTML = "Not a registration plate! eg; CA 12345"
         setTimeout(function () {
             errorElem2.innerHTML = ""
@@ -117,8 +121,8 @@ function showed() {
         var filteredList3 = list.filter(function (currentElement) {
             return currentElement.startsWith('WC');
         });
-        
-        var towns = document.querySelector(".slct1");
+
+        var towns = document.querySelector(".slct2");
         if (towns.value === "CA") {
             displayedTemp(filteredList1);
         }
@@ -162,7 +166,7 @@ showAllBtn2.addEventListener('click', allPlatesList);
 
 
 
-window.onload = displayedTemp(list);
+window.onload = addedTemp(list);
 
 
 function conditions3() {
