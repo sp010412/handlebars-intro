@@ -29,6 +29,10 @@ function registrationNumbers() {
         return currentElement.startsWith('WC');
     });
 
+function setAllPlateIn(name){
+    allPlateIn = name;
+}
+
 
     function getfilteredList1() {
         return filteredList1
@@ -47,9 +51,8 @@ function registrationNumbers() {
 
     return {
         storePlates,
-
+        setAllPlateIn,
         getStorePlates,
-
         getfilteredList1,
         getfilteredList2,
         getfilteredList3,

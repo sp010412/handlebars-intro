@@ -15,22 +15,26 @@ var userTemplate1 = Handlebars.compile(templateSource);
 *CA 12345
 */
 
-var list;
+var list2;
 
 if (localStorage['blates']) {
-    list = JSON.parse(localStorage.getItem('blates'))
+    list2 = JSON.parse(localStorage.getItem('blates'))
 } else {
-    list = []
+    list2 = []
 }
 
-var secondInsta = registrationNumbers(list);
+var secondInsta = registrationNumbers(list2);
+
+// displayedTemp(list)
+
+secondInsta.setAllPlateIn(list2)
 
 //var regEx = /^((CA|PA|WC)\s\d{3}\-\d{3})$|^((CA|PA|WC)\s\d{3}\d{3})$|^((CA|PA|WC)\s\d{3}\s\d{3})$/;
 function displayedTemp(plateIn) {
     // while (document.getElementById("displayedPlate").hasChildNodes()) {
     //     document.getElementById("displayedPlate").removeChild(document.getElementById("displayedPlate").firstChild)
     // }
-    plateIn = list;
+    // plateIn = list;
     // document.getElementById("displayedPlate").innerHTML = "";
     displayHere.innerHTML = userTemplate1({ userInsta: plateIn });
 
@@ -110,8 +114,8 @@ var filteredList3 = list.filter(function (currentElement) {
 });
 
 
-function showed() {
-    if (list.length > 0) {
+function showedTemp() {
+    if (list2.length > 0) {
         var filteredList1 = list.filter(function (currentElement) {
             return currentElement.startsWith('CA');
         });
@@ -141,18 +145,18 @@ function showed() {
 
     }
 }
-showBtn2.addEventListener('click', showed);
+showBtn2.addEventListener('click', showedTemp);
 
-function clear() {
+function clearTemp() {
     localStorage.removeItem('blates')
     location.reload()
 }
-resetBtn2.addEventListener('click', clear);
+resetBtn2.addEventListener('click', clearTemp);
 
 
 function allPlatesList() {
     if (secondInsta.getStorePlates()) {
-        displayedTemp(list)
+        displayedTemp(list2)
     } if (list.length === 0) {
         errorElem2.innerHTML = "No registration plates added!";
         setTimeout(function () {
@@ -166,7 +170,7 @@ showAllBtn2.addEventListener('click', allPlatesList);
 
 
 
-window.onload = addedTemp(list);
+window.onload = displayedTemp(list2);
 
 
 function conditions3() {
