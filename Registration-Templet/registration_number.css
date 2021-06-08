@@ -5,6 +5,7 @@ body {
     text-decoration: none;
     background: gray;
     display: flex;
+    font-size: 60%;
 }
 
 .container, .container1 {
