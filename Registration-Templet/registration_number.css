@@ -144,6 +144,9 @@ button span {
     color: red;
     font-size: 35px;
 }
+.green{
+    color: green;
+}
 
 select {
     padding: 10px;
