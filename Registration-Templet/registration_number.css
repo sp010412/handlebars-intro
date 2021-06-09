@@ -6,6 +6,7 @@ body {
     background: gray;
     display: flex;
     font-size: 60%;
+    margin-left:50px ;
 }
 
 .container, .container1 {
@@ -13,7 +14,7 @@ body {
     width: 95%;
     height: 90vh;
     text-align: center;
-    background: url(https://c4.wallpaperflare.com/wallpaper/788/752/890/ford-gt-2015-wallpaper-preview.jpg) no-repeat center/cover;
+    background: url(https://media.istockphoto.com/photos/silhouetted-car-on-black-picture-id511807989?k=6&m=511807989&s=612x612&w=0&h=t1CN8a-GDX_RuqooBqE93qE2jNN7gc3mHvPa0g_H478=) no-repeat center/cover;
 }
 
 p {
