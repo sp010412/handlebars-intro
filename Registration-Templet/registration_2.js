@@ -1,6 +1,6 @@
 var textBox2 = document.querySelector(".plates2")
 var addBtn2 = document.querySelector(".add2")
-var showBtn2 = document.querySelector(".show2")
+var showBtn2 = document.querySelector(".showTwo")
 var resetBtn2 = document.querySelector(".reset2")
 var showAllBtn2 = document.querySelector(".showAll2")
 var errorElem2 = document.getElementById('error2')
@@ -107,25 +107,25 @@ addBtn2.addEventListener('click', removeTemp);
 
 function showedTemp() {
     if (list2.length > 0) {
-        var filteredList1 = list2.filter(function (currentElement) {
+        var filteredListA = list2.filter(function (currentElement) {
             return currentElement.startsWith('CA');
         });
-        var filteredList2 = list2.filter(function (currentElement) {
+        var filteredListB = list2.filter(function (currentElement) {
             return currentElement.startsWith('PA');
         });
-        var filteredList3 = list2.filter(function (currentElement) {
+        var filteredListC = list2.filter(function (currentElement) {
             return currentElement.startsWith('WC');
         });
 
-        var towns = document.querySelector(".slct2");
-        if (towns.value === "CAA") {
-            displayedTemp(filteredList1);
+        var town = document.querySelector(".slct2");
+        if (town.value === "CAA") {
+            displayedTemp(filteredListA);
         }
-        else if (towns.value === "PAA") {
-            displayedTemp(filteredList2)
+        else if (town.value === "PAA") {
+            displayedTemp(filteredListB)
         }
-        else if (towns.value === "WCC") {
-            displayedTemp(filteredList3)
+        else if (town.value === "WCC") {
+            displayedTemp(filteredListC)
         }
     } else {
         errorElem2.innerHTML = "No registration plates added!";
@@ -147,7 +147,7 @@ resetBtn2.addEventListener('click', clearTemp);
 
 function allPlatesListTemp() {
     if (secondInsta.getStorePlates()) {
-        displayedTemp(list2)
+        displayedTemp(list2);
     } if (list2.length === 0) {
         errorElem2.innerHTML = "No registration plates added!";
         setTimeout(function () {
@@ -159,25 +159,43 @@ function allPlatesListTemp() {
 showAllBtn2.addEventListener('click', allPlatesListTemp);
 
 
-
-
-
-
 function conditionsTemp() {
 
-    var towns = document.querySelector(".slct2");
+    var filteredListA = list2.filter(function (currentElement) {
+        return currentElement.startsWith('CA');
+    });
+    var filteredListB = list2.filter(function (currentElement) {
+        return currentElement.startsWith('PA');
+    });
+    var filteredListC = list2.filter(function (currentElement) {
+        return currentElement.startsWith('WC');
+    });
 
-    if (filteredList1.length == 0 && towns.value === "CAA") {
-        return errorElem2.innerHTML = "No registration plates for Cape Town!";
+    var town = document.querySelector(".slct2");
+    if (filteredListA.length === 0 && town.value === "CAA") {
+        errorElem2.innerHTML = "No registration plates for Cape Town!";
+        setTimeout(function () {
+            errorElem2.innerHTML = ""
+        }, 3500);
+        return;
     }
-    if (filteredList2.length == 0 && towns.value === "PAA") {
-        return errorElem2.innerHTML = "No registration plates for Pretoria!";
+    if (filteredListB.length === 0 && town.value === "PAA") {
+        errorElem2.innerHTML = "No registration plates for Pretoria!";
+        setTimeout(function () {
+            errorElem2.innerHTML = ""
+        }, 3500);
+        return;
     }
-    if (filteredList3.length == 0 && towns.value === "WCC") {
-        return errorElem2.innerHTML = "No registration plates for Worcester!";
+    if (filteredListC.length === 0 && town.value === "WCC") {
+        errorElem2.innerHTML = "No registration plates for Worcester!";
+        setTimeout(function () {
+            errorElem2.innerHTML = ""
+        }, 3500);
+        return;
     }
 }
 showBtn2.addEventListener('click', conditionsTemp);
+
 
 
 window.onload = displayedTemp(list2);
