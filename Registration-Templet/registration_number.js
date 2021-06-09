@@ -39,10 +39,10 @@ function displayed(plateIn) {
 function added() {
     errorElem.style.color = "red"
     if (registrationInsta.storePlates(textBox.value.toUpperCase())) {
-        var key = registrationInsta.getStorePlates();
+        let key = registrationInsta.getStorePlates();
         localStorage.setItem('plates', JSON.stringify(key));
         displayed(key)
-        errorElem.innerHTML= "Plate added!";
+        errorElem.innerHTML = "Plate added!";
         errorElem.style.color = "green"
         setTimeout(function () {
             errorElem.innerHTML = ""
@@ -66,7 +66,7 @@ addBtn.addEventListener('click', added);
 var valid = /^((CA|PA|WC)\s\d{3}\-\d{3})$|^((CA|PA|WC)\s\d{3}\s\d{3})$|^((CA|PA|WC)\s\d{4})$/i;
 
 function conditions() {
-    
+    let key = registrationInsta.getStorePlates();
     if (textBox.value == "") {
         errorElem.innerHTML = "Enter a registration plate!";
 
@@ -76,7 +76,7 @@ function conditions() {
         return;
     }
 
-    else if (valid.test(textBox.value)!= true) {
+    else if (valid.test(textBox.value) != true) {
         errorElem.innerHTML = "Not a registration plate! eg; CA 12345"
         setTimeout(function () {
             errorElem.innerHTML = ""
@@ -95,29 +95,20 @@ function remove() {
 addBtn.addEventListener('click', remove);
 
 
-var filteredList1 = list.filter(function (currentElement) {
-    return currentElement.startsWith('CA');
-});
-var filteredList2 = list.filter(function (currentElement) {
-    return currentElement.startsWith('PA');
-});
-var filteredList3 = list.filter(function (currentElement) {
-    return currentElement.startsWith('WC');
-});
 
 
 function showed() {
     if (list.length > 0) {
-        var filteredList1 = list.filter(function (currentElement) {
+        let filteredList1 = list.filter(function (currentElement) {
             return currentElement.startsWith('CA');
         });
-        var filteredList2 = list.filter(function (currentElement) {
+        let filteredList2 = list.filter(function (currentElement) {
             return currentElement.startsWith('PA');
         });
-        var filteredList3 = list.filter(function (currentElement) {
+        let filteredList3 = list.filter(function (currentElement) {
             return currentElement.startsWith('WC');
         });
-        
+
         var towns = document.querySelector(".slct1");
         if (towns.value === "CA") {
             displayed(filteredList1);
@@ -148,7 +139,7 @@ resetBtn.addEventListener('click', clear);
 
 function allPlatesList() {
     if (registrationInsta.getStorePlates()) {
-        displayed(list)
+        displayed(list);
     } if (list.length === 0) {
         errorElem.innerHTML = "No registration plates added!";
         setTimeout(function () {
@@ -161,24 +152,45 @@ showAllBtn.addEventListener('click', allPlatesList);
 
 
 
-
 window.onload = displayed(list);
-
 
 function conditions3() {
 
+    let filteredList1 = list.filter(function (currentElement) {
+        return currentElement.startsWith('CA');
+    });
+    let filteredList2 = list.filter(function (currentElement) {
+        return currentElement.startsWith('PA');
+    });
+    let filteredList3 = list.filter(function (currentElement) {
+        return currentElement.startsWith('WC');
+    });
+
     var towns = document.querySelector(".slct1");
 
-    if (filteredList1.length == 0 && towns.value === "CA") {
-        return errorElem.innerHTML = "No registration plates for Cape Town!";
+    if (filteredList1.length === 0 && towns.value === "CA") {
+        errorElem.innerHTML = "No registration plates for Cape Town!";
+        setTimeout(function () {
+            errorElem.innerHTML = ""
+        }, 3500);
+        return;
     }
-    if (filteredList2.length == 0 && towns.value === "PA") {
-        return errorElem.innerHTML = "No registration plates for Pretoria!";
+    if (filteredList2.length === 0 && towns.value === "PA") {
+        errorElem.innerHTML = "No registration plates for Pretoria!";
+        setTimeout(function () {
+            errorElem.innerHTML = ""
+        }, 3500);
+        return;
     }
-    if (filteredList3.length == 0 && towns.value === "WC") {
-        return errorElem.innerHTML = "No registration plates for Worcester!";
+    if (filteredList3.length === 0 && towns.value === "WC") {
+        errorElem.innerHTML = "No registration plates for Worcester!";
+        setTimeout(function () {
+            errorElem.innerHTML = ""
+        }, 3500)
+        return
     }
-}
-showBtn.addEventListener('click', conditions3);
 
+}
+
+showBtn.addEventListener('click', conditions3);
 

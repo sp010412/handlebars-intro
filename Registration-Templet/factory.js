@@ -1,6 +1,6 @@
-function registrationNumbers() {
+function registrationNumbers(other) {
 
-    var allPlateIn = [];
+    var allPlateIn =other || [];
 
 
     var valid = /^((CA|PA|WC)\s\d{3}\-\d{3})$|^((CA|PA|WC)\s\d{3}\s\d{3})$|^((CA|PA|WC)\s\d{4})$/;

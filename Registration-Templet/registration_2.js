@@ -73,7 +73,7 @@ addBtn2.addEventListener('click', addedTemp);
 //var regEx = /^((CA|PA|WC)\s\d{3}\-\d{3})$|^((CA|PA|WC)\s\d{3}\d{3})$|^((CA|PA|WC)\s\d{3}\s\d{3})$/;
 var valid = /^((CA|PA|WC)\s\d{3}\-\d{3})$|^((CA|PA|WC)\s\d{3}\s\d{3})$|^((CA|PA|WC)\s\d{4})$/i;
 
-function conditions() {
+function conditionsTwo() {
 
     if (textBox2.value == "") {
         errorElem2.innerHTML = "Enter a registration plate!";
@@ -93,47 +93,38 @@ function conditions() {
     }
 
 }
-addBtn2.addEventListener('click', conditions);
+addBtn2.addEventListener('click', conditionsTwo);
 
-function remove() {
+function removeTemp() {
     if (addBtn2) {
         textBox2.value = ""
     }
 }
-addBtn2.addEventListener('click', remove);
+addBtn2.addEventListener('click', removeTemp);
 
 
-var filteredList1 = list.filter(function (currentElement) {
-    return currentElement.startsWith('CA');
-});
-var filteredList2 = list.filter(function (currentElement) {
-    return currentElement.startsWith('PA');
-});
-var filteredList3 = list.filter(function (currentElement) {
-    return currentElement.startsWith('WC');
-});
 
 
 function showedTemp() {
     if (list2.length > 0) {
-        var filteredList1 = list.filter(function (currentElement) {
+        var filteredList1 = list2.filter(function (currentElement) {
             return currentElement.startsWith('CA');
         });
-        var filteredList2 = list.filter(function (currentElement) {
+        var filteredList2 = list2.filter(function (currentElement) {
             return currentElement.startsWith('PA');
         });
-        var filteredList3 = list.filter(function (currentElement) {
+        var filteredList3 = list2.filter(function (currentElement) {
             return currentElement.startsWith('WC');
         });
 
         var towns = document.querySelector(".slct2");
-        if (towns.value === "CA") {
+        if (towns.value === "CAA") {
             displayedTemp(filteredList1);
         }
-        else if (towns.value === "PA") {
+        else if (towns.value === "PAA") {
             displayedTemp(filteredList2)
         }
-        else if (towns.value === "WC") {
+        else if (towns.value === "WCC") {
             displayedTemp(filteredList3)
         }
     } else {
@@ -154,10 +145,10 @@ function clearTemp() {
 resetBtn2.addEventListener('click', clearTemp);
 
 
-function allPlatesList() {
+function allPlatesListTemp() {
     if (secondInsta.getStorePlates()) {
         displayedTemp(list2)
-    } if (list.length === 0) {
+    } if (list2.length === 0) {
         errorElem2.innerHTML = "No registration plates added!";
         setTimeout(function () {
             errorElem2.innerHTML = ""
@@ -165,28 +156,28 @@ function allPlatesList() {
         return;
     }
 }
-showAllBtn2.addEventListener('click', allPlatesList);
+showAllBtn2.addEventListener('click', allPlatesListTemp);
 
 
 
 
-window.onload = displayedTemp(list2);
 
 
-function conditions3() {
+function conditionsTemp() {
 
-    var towns = document.querySelector(".slct1");
+    var towns = document.querySelector(".slct2");
 
-    if (filteredList1.length == 0 && towns.value === "CA") {
+    if (filteredList1.length == 0 && towns.value === "CAA") {
         return errorElem2.innerHTML = "No registration plates for Cape Town!";
     }
-    if (filteredList2.length == 0 && towns.value === "PA") {
+    if (filteredList2.length == 0 && towns.value === "PAA") {
         return errorElem2.innerHTML = "No registration plates for Pretoria!";
     }
-    if (filteredList3.length == 0 && towns.value === "WC") {
+    if (filteredList3.length == 0 && towns.value === "WCC") {
         return errorElem2.innerHTML = "No registration plates for Worcester!";
     }
 }
-showBtn2.addEventListener('click', conditions3);
+showBtn2.addEventListener('click', conditionsTemp);
 
 
+window.onload = displayedTemp(list2);
