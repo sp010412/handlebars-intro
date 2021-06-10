@@ -172,6 +172,7 @@ function conditionsTemp() {
     });
 
     var town = document.querySelector(".slct2");
+    errorElem2.style.color = "red";
     if (filteredListA.length === 0 && town.value === "CAA") {
         errorElem2.innerHTML = "No registration plates for Cape Town!";
         setTimeout(function () {

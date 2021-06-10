@@ -167,6 +167,7 @@ function conditions3() {
     });
 
     var towns = document.querySelector(".slct1");
+    errorElem.style.color = "red";
 
     if (filteredList1.length === 0 && towns.value === "CA") {
         errorElem.innerHTML = "No registration plates for Cape Town!";
